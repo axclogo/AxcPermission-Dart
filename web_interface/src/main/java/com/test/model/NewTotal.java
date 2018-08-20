@@ -19,12 +19,7 @@ public class NewTotal {
 	public void setTotal(int total) {
 		this.total = total;
 	}
-	public List<News> getRows() {
-		return rows;
-	}
-	public void setRows(List<News> rows) {
-		this.rows = rows;
-	}
+	
 	
 	
 }
