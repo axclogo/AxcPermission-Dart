@@ -1,37 +1,505 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<title>Particles</title>
-<style>
-		
-		body{background-color: #2D2D2D}
-	</style>
+<head>
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="bookmark" href="favicon.ico" />
+
+
+<base href="<%=basePath%>">
+
+<title>AxcLogo Cloud Service</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AxcLogo</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="author" content="http://www.imj2.com/" />
+<link rel="alternate icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet"
+	href="MainPageTemplate/template/css/amazeui.min.css">
+<link rel="stylesheet" href="MainPageTemplate/template/css/style.css">
+
 </head>
+
 <body>
+	<header class="m-hd">
+		<section data-am-sticky class="am-show-md-up">
+			<div class="am-container">
+				<a href="javascript:location.reload();" rel="nofollow"
+					class="m-logo"> <i class="am-icon-spinner"> </i> AxcLogo
+					Network
+				</a>
+				<!--        <ul class="am-fr m-about">
+                <li><a href="/about/" class="am-btn am-btn-danger am-btn-sm am-radius" rel="nofollow">关于我们</a></li>
+                <li><a href="/contact/" class="am-btn am-btn-danger am-btn-sm am-radius" rel="nofollow">联系我们</a></li>
+            </ul> -->
+				<nav>
+					<ul class="m-nav am-nav am-nav-pills am-fr">
+						<li><a href="javascript:location.reload();" rel="nofollow">首页</a>
+						</li>
+						<li class="am-dropdown" data-am-dropdown><a href="/anli.html"
+							rel="nofollow" class="am-dropdown-toggle" data-am-dropdown-toggle>服务相关
+								<span class="am-icon-caret-down"></span>
+						</a>
+							<ul class="am-dropdown-content">
+								<li><a
+									href="Tools/JsonModelParsingTool/JsonModelParsingTool.html"
+									target=_blank rel="nofollow">JsonModel 在线转换</a></li>
+								<li><a
+									href="Tools/HtmlOnlineTestTool/HtmlOnlineTestTool.html"
+									target=_blank rel="nofollow">Html 在线测试</a></li>
+								<li><a
+									href="Tools/HexConversionTool/HexConversionTool.html"
+									target=_blank rel="nofollow">在线进制转换</a></li>
+									<li><a
+									href="Tools/ColorChooseTool/ColorChooseTool.html"
+									target=_blank rel="nofollow">在线色值转换</a></li>
 
-<div id="mydiv" style="height:500px;"></div>
-<script type="text/javascript">
+								<!--<li>ColorChooseTool
+										<a href="" rel="nofollow">爬虫数据</a>
+									</li>
+									<li>
+										<a href="" rel="nofollow">服务Api列表</a>
+									</li> -->
+							</ul></li>
+						<li><a href="http://118.24.164.128:9001/wordpress/"
+							rel="nofollow">博客</a></li>
+						<li><a
+							href="http://118.24.164.128:19999/#menu_system;theme=slate;help=true"
+							rel="nofollow">运行统计</a></li>
+						<li><a href="http://118.24.164.128:233/" rel="nofollow">云盘系统</a>
+						</li>
+						<li><a href="/about.html" rel="nofollow">控制台</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<nav data-am-widget="header" class="am-header am-show-sm-only">
+			<div class="am-header-left am-header-nav">
+				<a href="javascript:location.reload();" rel="nofollow"> <i
+					class="am-header-icon am-icon-home"></i> 首页
+				</a>
+			</div>
+			<h1 class="am-header-title">
+				<a href="/" rel="nofollow">AxcLogo Cloud Service</a>
+			</h1>
+			<div class="am-header-right am-header-nav">
+				<a href="#right-link" class=""
+					data-am-offcanvas="{target: '#r-nav'}"> <i
+					class="am-header-icon am-icon-bars"></i> 菜单
+				</a>
+			</div>
+		</nav>
+
+		<!-- 侧边栏内容 -->
+		<div id="r-nav" class="am-offcanvas">
+			<div class="am-offcanvas-bar am-offcanvas-bar-flip">
+				<nav class="am-offcanvas-content">
+					<a href="/" rel="nofollow"><span class="logo"></span></a>
+					<p>
+						<i class="am-icon-home"></i> <a href="/" rel="nofollow">首页</a>
+					</p>
+					<p>
+						<i class="am-icon-desktop"></i> <a
+							href="http://118.24.164.128:9001/wordpress/" target="view_window"
+							rel="nofollow">Axc博客</a>
+					</p>
+					<p>
+						<i class="am-icon-cogs"></i> <a
+							href="http://118.24.164.128:19999/#menu_system;theme=slate;help=true"
+							target="view_window" rel="nofollow">运行统计</a>
+					</p>
+					<p>
+						<i class="am-icon-credit-card"></i> <a
+							href="http://118.24.164.128:233/" target="view_window"
+							rel="nofollow">云盘系统</a>
+					</p>
+
+					<p>
+						<i class="am-icon-user"></i> <a href="/about.html"
+							target="view_window" rel="nofollow">控制台</a>
+					</p>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div data-am-widget="slider" class="am-slider am-slider-i2"
+		data-am-flexslider="{controlNav:false}" id="canvas_div">
+		<ul class="am-slides">
+			<li class="am-slider-images"
+				style="background-image: url(MainPageTemplate/template/images/banner1.jpg)">
+				<div class="am-container am-slider-desc">
+					<div class="am-slider-content">
+						<h2 class="am-slider-title am-animation-slide-left"
+							data-am-scrollspy="{animation: 'slide-left', delay: 100}">Axc
+							Cloud Service</h2>
+						<p data-am-scrollspy="{animation:'slide-right', delay: 600}"
+							class="am-animation-slide-right">WelCome To AxcCloud</p>
+						<a href="http://118.24.164.128:233/phpmyadmin/index.php"
+							class="am-btn-xs am-btn am-btn-danger am-radius am-animation-slide-bottom am-animation-delay-1"
+							rel="nofollow"
+							data-am-scrollspy="{animation:'slide-bottom', delay: 100}">登陆后台</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="m-services m-home-box">
+		<section class="am-container">
+			<hgroup class="am-animation-slide-bottom am-animation-delay-1"
+				data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
+				<h2>云服环境</h2>
+				<p>Lamp + PHP + MySQL + Apache + Jdk + Tomcat + Wordpress +
+					OnwCloud</p>
+			</hgroup>
+			<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-6 am-thumbnails">
+				<li class="am-animation-slide-top"
+					data-am-scrollspy="{animation:'slide-top', delay: 0}">
+					<h2>音乐</h2>
+					<p>最爱Music</p>
+				</li>
+				<li class="am-animation-slide-top"
+					data-am-scrollspy="{animation:'slide-top', delay: 0}">
+					<h2>视频</h2>
+					<p>记录上传点点滴滴</p>
+				</li>
+				<li class="am-animation-slide-top am-animation-delay-1"
+					data-am-scrollspy="{animation:'slide-top', delay: 100}">
+					<h2>第三</h2>
+					<p>这里不知道写什么</p>
+				</li>
+				<li class="am-animation-slide-top am-animation-delay-1"
+					data-am-scrollspy="{animation:'slide-top', delay: 100}">
+					<h2>第四</h2>
+					<p>这里不知道写什么</p>
+				</li>
+				<li class="am-animation-slide-top am-animation-delay-2"
+					data-am-scrollspy="{animation:'slide-top', delay: 200}">
+					<h2>第五</h2>
+					<p>这里不知道写什么</p>
+				</li>
+				<li class="am-animation-slide-top am-animation-delay-2"
+					data-am-scrollspy="{animation:'slide-top', delay: 200}">
+					<h2>第六</h2>
+					<p>这里不知道写什么</p>
+				</li>
+			</ul>
+		</section>
+
+	</div>
+	<div class="am-container m-home-box">
+		<hgroup data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
+			<h2>在线工具</h2>
+			<p>在线开发工具，快速使用</p>
+		</hgroup>
+		<section class="m-case-list">
+			<ul class="am-avg-sm-1 am-avg-md-3 am-avg-lg-3 am-thumbnails">
+
+				<li data-am-scrollspy="{animation:'slide-bottom', delay: 196}">
+					<figure class="effect-lily">
+						<img src="MainPageTemplate/template/images/loading.gif"
+							alt="json转换"
+							data-echo="MainPageTemplate/template/uploadfiles/image/201509/46.jpg"
+							class="am-img-responsive">
+						<figcaption>
+							<h3>
+								Json-Model<br>在线转换
+							</h3>
+							<p>
+								支持语言：<br>Swift、Objective-C、Java、C#
+							</p>
+							<a href="Tools/JsonModelParsingTool/JsonModelParsingTool.html"
+								target=_blank rel="nofollow">View more</a>
+						</figcaption>
+					</figure>
+				</li>
+
+				<li data-am-scrollspy="{animation:'slide-bottom', delay: 174}">
+					<figure class="effect-lily">
+						<img src="MainPageTemplate/template/images/loading.gif"
+							alt="研磨时光菜单设计"
+							data-echo="MainPageTemplate/template/uploadfiles/image/201509/23.jpg"
+							class="am-img-responsive">
+						<figcaption>
+							<h3>Html开发</h3>
+							<p>技术栈：Html、Java Script</p>
+							<a href="/post/62.html">View more</a>
+						</figcaption>
+					</figure>
+				</li>
+
+				<li data-am-scrollspy="{animation:'slide-bottom', delay: 119}">
+					<figure class="effect-lily">
+						<img src="MainPageTemplate/template/images/loading.gif"
+							alt="鲜果果水果宣传单张设计与印刷"
+							data-echo="MainPageTemplate/template/uploadfiles/image/201509/32.jpg"
+							class="am-img-responsive">
+						<figcaption>
+							<h3>JSP开发</h3>
+							<p>简单基础的Java服务端开发能力</p>
+							<a href="/post/62.html">View more</a>
+						</figcaption>
+					</figure>
+				</li>
+			</ul>
+		</section>
+
+	</div>
+	<hr>
+	<section class="am-container m-home-box m-partner">
+
+		<hgroup data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
+			<h2>相关链接</h2>
+			<p>其他相关GitHub、博客、论坛等站点的链接地址</p>
+		</hgroup>
+		<ul class="am-avg-lg-8 am-avg-md-8 am-avg-sm-2  am-thumbnails"
+			data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 44}"><img
+				src="MainPageTemplate/template/images/tencent.png" alt="腾讯"
+				class="am-img-responsive"></li>
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 45}"><img
+				src="MainPageTemplate/template/images/dianxin.png" alt="中国电信"
+				class="am-img-responsive"></li>
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 399}">
+				<img src="MainPageTemplate/template/images/aliyun.png" alt="阿里云"
+				class="am-img-responsive">
+			</li>
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 286}">
+				<img src="MainPageTemplate/template/images/canon.png" alt="佳能"
+				class="am-img-responsive">
+			</li>
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 114}">
+				<img src="MainPageTemplate/template/images/baidu.png" alt="百度"
+				class="am-img-responsive">
+			</li>
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 72}"><img
+				src="MainPageTemplate/template/images/microsoft.png" alt="微软"
+				class="am-img-responsive"></li>
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 190}">
+				<img src="MainPageTemplate/template/images/apple.png" alt="苹果"
+				class="am-img-responsive">
+			</li>
+			<li data-am-scrollspy="{animation:'slide-bottom', delay: 99}"><img
+				src="MainPageTemplate/template/images/adobe.png" alt="adobe"
+				class="am-img-responsive"></li>
+		</ul>
+	</section>
+	<div class="m-home-box m-contact">
+		<section class="am-container">
+			<hgroup data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
+				<h2>联系我</h2>
+				<p>你可以通过以下方式和我取得联系。</p>
+			</hgroup>
+			<ul class="am-avg-lg-4 am-avg-md-4 am-avg-sm-2 am-thumbnails">
+				<li data-am-scrollspy="{animation:'slide-bottom', delay: 2}"><i
+					class="am-icon-qq"></i> 172****352</li>
+				<li data-am-scrollspy="{animation:'slide-bottom', delay: 41}">
+					<i class="am-icon-phone-square"></i> 176-8234-5324
+				</li>
+				<li data-am-scrollspy="{animation:'slide-bottom', delay: 51}">
+					<i class="am-icon-weixin"></i> zx53****339
+				</li>
+				<li data-am-scrollspy="{animation:'slide-bottom', delay: 211}">
+					<i class="am-icon-envelope"></i> axclogo@163.com
+				</li>
+			</ul>
+		</section>
+	</div>
+	<div class="m-contact-us">
+		<section class="am-container">
+			<div class="am-g">
+				<span class="m-u-sm-12 am-u-md-9 am-u-lg-10"
+					data-am-scrollspy="{animation:'slide-left', delay: 100}">如果你有更好的意见或建议，欢迎提出！</span>
+				<span class="m-u-sm-12 am-u-md-3 am-u-lg-2"
+					data-am-scrollspy="{animation:'slide-right', delay: 100}"> <a
+					target="_blank"
+					href="http://wpa.qq.com/msgrd?v=3&uin=88888888&site=qq&menu=yes"
+					class="am-btn am-btn-danger am-radius" rel="external nofollow">意见反馈</a>
+				</span>
+			</div>
+		</section>
+	</div>
+	<footer class="m-footer">
+
+		<div class="am-container">
+			<section class="am-g m-footer-container">
+				<section class="am-u-sm-12 am-u-md-12 am-u-lg-6">
+					<h2>关于</h2>
+					<p>
+						姓名赵新，目前主要从事移动端开发，在iOS领域拥有丰富开发经验，拥有较强的代码驾驭能力，坐标杭州，开源分享众多由objective-c、swift开发的框架/工具到github。
+						</br>技术栈：iOS(Objective-c/Swift)、C#、C++、Html、JavaScript、Java、JSP、Ruby。 <a
+							href="/about.html" rel="nofollow">更多</a>
+					</p>
+				</section>
+				<section class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+					<h2>GitHub开源项目</h2>
+					<ul>
+						<li><time class="am-fr">iOS开发</time> <a
+							href="https://github.com/axclogo/AxcAE_TabBar">AxcAE_TabBar</a></li>
+						<li><time class="am-fr">iOS开发</time> <a
+							href="https://github.com/axclogo/AxcUIKit-Sample">AxcUIKit</a></li>
+						<li><time class="am-fr">最冷</time> <a href="/post/148">哈哈哈哈</a>
+						</li>
+					</ul>
+				</section>
+				<section class="am-u-sm-12 am-u-md-6 am-u-lg-3 subnav">
+					<h2>其他</h2>
+					<a href="" rel="nofollow">网站欣赏</a> <a href="/sitemap.html">网站地图</a>
+					<a href="" rel="nofollow">合作流程</a> <a href="" rel="nofollow">帮助中心</a>
+					<a href="/contact.html" rel="nofollow">联系我们</a>
+				</section>
+			</section>
+			<section class="m-footer-flink">
+				<h2>Mark友链</h2>
+				<a href="http://www.bootcss.com/" target="_blank">Bootstrap中文网</a> <a
+					href="http://www.bootcdn.cn/" target="_blank">BootCDN</a> <a
+					href="http://www.gruntjs.net/" target="_blank">Grunt中文网</a> <a
+					href="https://www.gulpjs.com.cn/" target="_blank">Gulp中文网</a> <a
+					href="https://www.lodashjs.com/" target="_blank">Lodash中文文档</a> <a
+					href="https://www.jquery123.com/" target="_blank">jQuery中文文档</a>
+			</section>
+		</div>
+
+		<div class="m-footer-bottom">
+			<div class="am-container">
+				<div class="am-g">
+					<span class="m-u-sm-12 am-u-md-9 am-u-lg-10">Copyright @
+						2017 - 2018 www.axclogo.club. All Rights Reserved 模板作者：俊贰 <!-- <a href="hhttp://tpl.amazeui.org/user.html?12" rel="external nofollow">粤ICP备xxxxxx号-1</a>  -->
+						<a href="http://tpl.amazeui.org/user.html?12">俊贰</a>
+					</span>
+					<!-- <span class="m-u-sm-12 am-u-md-3 am-u-lg-2 ico am-text-right am-hide-sm-only a">
+			<a href="" data-am-popover="{content: '88888888', trigger: 'hover focus'}" rel="nofollow"><i class="am-icon-qq"></i></a>
+			<a href="" data-am-popover="{content: '138-0000-0000', trigger: 'hover focus'}" rel="nofollow"><i class="am-icon-phone-square"></i></a>
+			<a href="" data-am-popover="{content: '138-0000-0000', trigger: 'hover focus'}" rel="nofollow"><i class="am-icon-weixin"></i></a>
+			<a href="" data-am-popover="{content: '11111@qq.com', trigger: 'hover focus'}" rel="nofollow"><i class="am-icon-envelope"></i></a>
+		</span> -->
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="MainPageTemplate/template/js/echo.min.js"></script>
+
+	<script>
+		echo.init({
+			offset : 100,
+			throttle : 250,
+			unload : false,
+			callback : function(element, op) {
+				// 日志
+				/* console.log(element, 'has been', op + 'ed') */
+			}
+		});
+		// 图片赖加载
+	</script>
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<script src="MainPageTemplate/template/js/jquery.min.js"></script>
+	<script src="MainPageTemplate/template/js/amazeui.min.js"></script>
+	<!--<![endif]-->
+	<script src='MainPageTemplate/template/js/jquery.qrcode.min.js'></script>
+	<script type="text/javascript">
+		$(function() {
+			var str = "";
+			$("#code").qrcode({
+				render : "table",
+				width : 100,
+				height : 100,
+				text : str
+			});
+		})
+		// 二维码生成
+		//返回顶部
+		function imj2() {
+			this.init();
+		}
+		imj2.prototype = {
+			constructor : imj2,
+			init : function() {
+				this._initBackTop();
+			},
+			_initBackTop : function() {
+				var $backTop = this.$backTop = $('<div class="m-top-cbbfixed">'
+						+ '<a class="m-top-weixin m-top-cbbtn"">'
+						+ '<span class="m-top-weixin-icon"></span><div></div>'
+						+ '</a>' + '<a class="m-top-go m-top-cbbtn">'
+						+ '<span class="m-top-goicon"></span>' + '</a>'
+						+ '</div>');
+				$('body').append($backTop);
+
+				$backTop.click(function() {
+					$("html, body").animate({
+						scrollTop : 0
+					}, 120);
+				});
+
+				var timmer = null;
+				$(window).bind(
+						"scroll",
+						function() {
+							var d = $(document).scrollTop(), e = $(window)
+									.height();
+							0 < d ? $backTop.css("bottom", "10px") : $backTop
+									.css("bottom", "-90px");
+							clearTimeout(timmer);
+							timmer = setTimeout(function() {
+								clearTimeout(timmer)
+							}, 100);
+						});
+			}
+
+		}
+		var imj2 = new imj2();
+		//end返回顶部
+	</script>
+
+	<script type="text/javascript">
 		window.onload = function() {
-		    //配置
-		    var config = {
-		        vx: 4,	//小球x轴速度,正为右，负为左
-		        vy: 4,	//小球y轴速度
-		        height: 2,	//小球高宽，其实为正方形，所以不宜太大
-		        width: 2,
-		        count: 100,		//点个数
-		        color: "121, 162, 185", 	//点颜色
-		        stroke: "130,255,255", 		//线条颜色
-		        dist: 5000, 	//点吸附距离
-		        e_dist: 10000, 	//鼠标吸附加速距离
-		        max_conn: 10 	//点到点最大连接数
-		    }
+			//配置
+			var config = {
+				vx : 7, //小球x轴速度,正为右，负为左
+				vy : 7, //小球y轴速度
+				height : 1, //小球高宽，其实为正方形，所以不宜太大
+				width : 1,
+				count : 150, //点个数
+				color : "105, 105, 105", //点颜色
+				stroke : "190,190,190", //线条颜色
+				dist : 5000, //点吸附距离
+				e_dist : 0, //鼠标吸附加速距离
+				max_conn : 10
+			//点到点最大连接数
+			}
 
-		    //调用
-		    CanvasParticle(config);
+			//调用
+			CanvasParticle(config);
 		}
 	</script>
-<script type="text/javascript" src="MainPageTemplate/JS_Lib/canvas-particle.js"></script>
+	<script type="text/javascript"
+		src="MainPageTemplate/canvas_js/canvas-particle.js"></script>
+
 </body>
+
 </html>

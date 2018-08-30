@@ -13,8 +13,8 @@ var CanvasParticle = (function(){
 		// var body = getElementByTag("body")[0];
 
 		// 获取特定div作为背景
-		// mydiv是你想要将其作为背景的div的ID
-		var body = document.getElementById("mydiv");
+		// canvas_div是你想要将其作为背景的div的ID
+		var body = document.getElementById("canvas_div");
 		var canvasObj = document.createElement("canvas");
 
 		var canvas = {
@@ -74,8 +74,8 @@ var CanvasParticle = (function(){
 		// canvas.height = window.innerWeight || document.documentElement.clientHeight || document.body.clientHeight;
 
 		// 获取特定div的宽高
-		var width = document.getElementById("mydiv").style.width;
-		var height = document.getElementById("mydiv").style.height;
+		var width = document.getElementById("canvas_div").style.width;
+		var height = document.getElementById("canvas_div").style.height;
 		width = parseInt(width);
 		height = parseInt(height);
 		canvas.width = width || window.innerWeight || document.documentElement.clientWidth || document.body.clientWidth;
@@ -159,21 +159,21 @@ var CanvasParticle = (function(){
 			// 如果鼠标进入画布
 			// point to mouse
 			if(mouse){
-				dist = Math.round(canvas.points[i].x - mouse.x) * Math.round(canvas.points[i].x - mouse.x) + 
-						Math.round(canvas.points[i].y - mouse.y) * Math.round(canvas.points[i].y - mouse.y);
-				// 遇到鼠标吸附距离时加速，直接改变point的x，y值达到加速效果
-				if(dist > canvas.config.dist && dist <= canvas.config.e_dist){
-					canvas.points[i].x = canvas.points[i].x + (mouse.x - canvas.points[i].x) / 20;
-					canvas.points[i].y = canvas.points[i].y + (mouse.y - canvas.points[i].y) / 20;
-				}
-				if(dist <= canvas.config.e_dist){
-					context.lineWidth = 1;
-					context.strokeStyle = "rgba("+ canvas.config.stroke + ","+ (1 - dist / canvas.config.e_dist) +")";
-					context.beginPath();
-					context.moveTo(canvas.points[i].x, canvas.points[i].y);
-					context.lineTo(mouse.x, mouse.y);
-					context.stroke();
-				}
+//				dist = Math.round(canvas.points[i].x - mouse.x) * Math.round(canvas.points[i].x - mouse.x) + 
+//						Math.round(canvas.points[i].y - mouse.y) * Math.round(canvas.points[i].y - mouse.y);
+//				// 遇到鼠标吸附距离时加速，直接改变point的x，y值达到加速效果
+//				if(dist > canvas.config.dist && dist <= canvas.config.e_dist){
+//					canvas.points[i].x = canvas.points[i].x + (mouse.x - canvas.points[i].x) / 20;
+//					canvas.points[i].y = canvas.points[i].y + (mouse.y - canvas.points[i].y) / 20;
+//				}
+//				if(dist <= canvas.config.e_dist){
+//					context.lineWidth = 1;
+//					context.strokeStyle = "rgba("+ canvas.config.stroke + ","+ (1 - dist / canvas.config.e_dist) +")";
+//					context.beginPath();
+//					context.moveTo(canvas.points[i].x, canvas.points[i].y);
+//					context.lineTo(mouse.x, mouse.y);
+//					context.stroke();
+//				}
 			}
 		}
 	}
