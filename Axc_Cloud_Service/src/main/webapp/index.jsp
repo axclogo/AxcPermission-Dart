@@ -64,20 +64,10 @@
 								<span class="am-icon-caret-down"></span>
 						</a>
 							<ul class="am-dropdown-content">
-								<li><a
-									href="Tools/JsonModelParsingTool/JsonModelParsingTool.html"
-									target=_blank rel="nofollow">JsonModel 在线转换</a></li>
-								<li><a
-									href="Tools/HtmlOnlineTestTool/HtmlOnlineTestTool.html"
-									target=_blank rel="nofollow">Html 在线测试</a></li>
-								<li><a
-									href="Tools/HexConversionTool/HexConversionTool.html"
-									target=_blank rel="nofollow">在线进制转换</a></li>
-									<li><a
-									href="Tools/ColorChooseTool/ColorChooseTool.html"
-									target=_blank rel="nofollow">在线色值转换</a></li>
-
-								<!--<li>ColorChooseTool
+								<li><a href="ApiList/ApiList.html" target=_blank
+									rel="nofollow">Api列表</a></li>
+								<li>
+									<!--<li>ColorChooseTool
 										<a href="" rel="nofollow">爬虫数据</a>
 									</li>
 									<li>
@@ -150,7 +140,9 @@
 		data-am-flexslider="{controlNav:false}" id="canvas_div">
 		<ul class="am-slides">
 			<li class="am-slider-images"
-				style="background-image: url(MainPageTemplate/template/images/banner1.jpg)">
+				style="background-image: url(MainPageTemplate/template/images/banner1.png)">
+
+				
 				<div class="am-container am-slider-desc">
 					<div class="am-slider-content">
 						<h2 class="am-slider-title am-animation-slide-left"
@@ -161,9 +153,11 @@
 						<a href="http://118.24.164.128:233/phpmyadmin/index.php"
 							class="am-btn-xs am-btn am-btn-danger am-radius am-animation-slide-bottom am-animation-delay-1"
 							rel="nofollow"
-							data-am-scrollspy="{animation:'slide-bottom', delay: 100}">登陆后台</a>
+							data-am-scrollspy="{animation:'slide-bottom', delay: 100}" >
+							&nbsp&nbsp登陆后台&nbsp&nbsp</a>
 					</div>
 				</div>
+
 			</li>
 		</ul>
 	</div>
@@ -213,8 +207,8 @@
 	</div>
 	<div class="am-container m-home-box">
 		<hgroup data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
-			<h2>在线工具</h2>
-			<p>在线开发工具，快速使用</p>
+			<h2>Axc云服</h2>
+			<p>服务内容</p>
 		</hgroup>
 		<section class="m-case-list">
 			<ul class="am-avg-sm-1 am-avg-md-3 am-avg-lg-3 am-thumbnails">
@@ -273,24 +267,44 @@
 	<section class="am-container m-home-box m-partner">
 
 		<hgroup data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
-			<h2>相关链接</h2>
-			<p>其他相关GitHub、博客、论坛等站点的链接地址</p>
+			<h2>开发者工具包</h2>
+			<p>在线开发工具，快速使用</p>
 		</hgroup>
 		<ul class="am-avg-lg-8 am-avg-md-8 am-avg-sm-2  am-thumbnails"
 			data-am-scrollspy="{animation:'slide-bottom', delay: 100}">
 			<li data-am-scrollspy="{animation:'slide-bottom', delay: 44}"><img
-				src="MainPageTemplate/template/images/tencent.png" alt="腾讯"
-				class="am-img-responsive"></li>
+				src="MainPageTemplate/template/images/jsonModel.png" alt="JsonModel"
+				class="am-img-responsive"
+				onclick='window.open("Tools/JsonModelParsingTool/JsonModelParsingTool.html")'>
+				<p style="text-align: center;">
+					Json-Model<br>在线转换
+				</p></li>
+
 			<li data-am-scrollspy="{animation:'slide-bottom', delay: 45}"><img
-				src="MainPageTemplate/template/images/dianxin.png" alt="中国电信"
-				class="am-img-responsive"></li>
+				src="MainPageTemplate/template/images/htmlEditor.png"
+				alt="htmlEditor" class="am-img-responsive"
+				onclick='window.open("Tools/HtmlOnlineTestTool/HtmlOnlineTestTool.html")'>
+				<p style="text-align: center;">
+					Html-Css-Js<br>在线编辑
+				</p></li>
 			<li data-am-scrollspy="{animation:'slide-bottom', delay: 399}">
-				<img src="MainPageTemplate/template/images/aliyun.png" alt="阿里云"
-				class="am-img-responsive">
+				<img src="MainPageTemplate/template/images/colorChoose.png"
+				alt="colorChoose" class="am-img-responsive"
+				onclick='window.open("Tools/ColorChooseTool/ColorChooseTool.html")'>
+				<p style="text-align: center;">
+					颜色转换<br>在线选择
+				</p>
+			</li>
 			</li>
 			<li data-am-scrollspy="{animation:'slide-bottom', delay: 286}">
-				<img src="MainPageTemplate/template/images/canon.png" alt="佳能"
-				class="am-img-responsive">
+				<img
+				src="MainPageTemplate/template/images/HexadecimalConversion.png"
+				alt="HexadecimalConversion" class="am-img-responsive"
+				onclick='window.open("Tools/HexConversionTool/HexConversionTool.html")'>
+				<p style="text-align: center;">
+					进制换算器<br>在线转换
+				</p>
+			</li>
 			</li>
 			<li data-am-scrollspy="{animation:'slide-bottom', delay: 114}">
 				<img src="MainPageTemplate/template/images/baidu.png" alt="百度"
@@ -318,7 +332,7 @@
 				<li data-am-scrollspy="{animation:'slide-bottom', delay: 2}"><i
 					class="am-icon-qq"></i> 172****352</li>
 				<li data-am-scrollspy="{animation:'slide-bottom', delay: 41}">
-					<i class="am-icon-phone-square"></i> 176-8234-5324
+					<i class="am-icon-phone-square"></i> 176 **** 5324
 				</li>
 				<li data-am-scrollspy="{animation:'slide-bottom', delay: 51}">
 					<i class="am-icon-weixin"></i> zx53****339
@@ -362,8 +376,8 @@
 							href="https://github.com/axclogo/AxcAE_TabBar">AxcAE_TabBar</a></li>
 						<li><time class="am-fr">iOS开发</time> <a
 							href="https://github.com/axclogo/AxcUIKit-Sample">AxcUIKit</a></li>
-						<li><time class="am-fr">最冷</time> <a href="/post/148">哈哈哈哈</a>
-						</li>
+						<li><time class="am-fr">iOS开发</time> <a
+							href="https://github.com/axclogo/AxcBasicSuit">AxcBasicSuit</a></li>
 					</ul>
 				</section>
 				<section class="am-u-sm-12 am-u-md-6 am-u-lg-3 subnav">
