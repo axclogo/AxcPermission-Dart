@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("test/")
-@Api("测试接口")
+@Api(tags = {"test"})
 public class TestApi {
 	
 	@ApiOperation("Post返回Json_Map")

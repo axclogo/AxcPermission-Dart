@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import cloud_servce.entity.User;
+import cloud_servce.entity.User.*;
  
 
 public interface IUserDao extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User>{

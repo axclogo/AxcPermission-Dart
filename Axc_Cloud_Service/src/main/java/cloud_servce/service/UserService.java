@@ -11,14 +11,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.google.gson.Gson;
 import com.hazelcast.util.JsonUtil;
-import com.hazelcast.util.MD5Util;
+//import com.hazelcast.util.MD5Util;
 
+import cloud_servce.conf.ConstantConfig;
 import cloud_servce.dao.IUserDao;
 import cloud_servce.entity.User;
 import cloud_servce.result.FailureResult;
 import cloud_servce.result.ResultBody;
 import cloud_servce.result.SuccessResult;
-
+import cloud_servce.util.UpdateUtil;
+import cloud_servce.util.MD5Util;
 
 @Service
 public class UserService {
@@ -32,19 +34,23 @@ public class UserService {
 	public User getByPhone(String phone){
 		return userDao.findByUserPhone(phone);
 	}
-	
+
 	public User getById(Integer userId){
 		return userDao.findOne(userId);
 	}
-	
+
 	public User save(User user){
 		return userDao.save(user);
 	}
-	
-	
+
+
 	public Object login(String phone, String password){
-		User user = userDao.findByUserPhoneAndUserPassword(phone, password);
 		ResultBody result;
+		if (phone == null) {
+			result = new FailureResult(ConstantConfig.EMPTY_PHONE_PROMPT);
+			return result;
+		}
+		User user = userDao.findByUserPhoneAndUserPassword(phone, password);
 		if (user == null) {
 			user = userDao.findByUserPhone(phone);
 			if (user==null) {
@@ -55,26 +61,87 @@ public class UserService {
 		}else{
 			result = new SuccessResult("登录成功", user);
 		}
-		Gson gson = new Gson();
-		String json = gson.toJson(result);
-		return json;
+		return result;
 	}
-	
-//	@Transactional
-//	public Object register(String phone, String password){
-//		User existUser = userDao.findByPhone(phone);
-//		ResultBody result;
-//		if (existUser!=null) {
-//			result = new FailureResult("手机号已注册");
-//		}else{
-//			//用户注册同时注册环信账户
-//			User user = new User(0, new BigDecimal(0), MD5Util.encrypt(password), phone, ConstantConfig.AVATAR, "", "");
-//			userDao.save(user);
-//			String token = easemobService.getAccessToken();
-//			String username = "user_" + user.getUserId();
-//			EasemobUtil.register(token, username, "123456");
-//			result = new SuccessResult("注册成功", user);
-//		}
-//		return JsonUtil.resultFilter(result);
-//	}
+
+	@Transactional
+	public Object register(String phone, String password){
+		ResultBody result;
+		if (phone == null) {
+			result = new FailureResult(ConstantConfig.EMPTY_PHONE_PROMPT);
+			return result;
+		}
+		if (password == null) {
+			result = new FailureResult("密码不能为空！");
+			return result;
+		}
+		if (password.length() < 6) {
+			result = new FailureResult("密码长度至少为6");
+			return result;
+		}
+		User existUser = userDao.findByUserPhone(phone);
+		if (existUser!=null) {
+			result = new FailureResult("手机号已注册");
+		}else{
+			User user = new User();
+			user.setUserPhone(phone);
+			user.setUserPassword(password);
+			user.setUserName(String.format("AxcCloud-%s", phone));
+			user.setUserCover(ConstantConfig.AVATAR);
+			user.setUserDescribe("这家伙很懒，什么都没留下");
+			user.setUserLevel(0);
+			user.setIsAdmin(0);
+			userDao.save(user);
+
+			result = new SuccessResult("注册成功", user);
+		}
+		return result;
+	}
+
+	@Transactional
+	public Object getInfo(Integer userId){
+		User source_user = userDao.findByUserId(userId);
+		ResultBody result;
+		if (source_user == null) {
+			result = new FailureResult("用户不存在");
+		}else {
+			result = new SuccessResult("获取用户信息成功", source_user);
+		}
+		return result;
+	}
+
+	@Transactional
+	public Object updateInfo(User user){
+		User source_user = userDao.findByUserId(user.getUserId());
+		ResultBody result;
+		if (source_user == null) {
+			result = new FailureResult("用户不存在");
+		}else {
+			UpdateUtil.copyNonNullProperties(user, source_user);
+			user = userDao.save(source_user);
+			result = new SuccessResult("更新用户信息成功", source_user);
+		}
+		return result;
+	}
+
+	@Transactional
+	public Object resetPassword(Integer userId , String newPassword, String token){
+		ResultBody result;
+		token = token.toLowerCase();
+		String checkToken = MD5Util.encrypt(String.format("%d-%s-AXCCLOUD", userId,newPassword)).toLowerCase();
+		if (checkToken.equals(token)) {
+			User source_user = userDao.findByUserId(userId);
+			if (source_user == null) {
+				result = new FailureResult("用户不存在");
+			}else {
+				source_user.setUserPassword(newPassword);
+				userDao.save(source_user);
+				result = new SuccessResult("更新用户密码成功", source_user);
+			}
+		}else {
+			result = new FailureResult("校验失败！无法修改密码");
+		}
+		return result;
+	}
+
 }
