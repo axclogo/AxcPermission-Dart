@@ -1,17 +1,9 @@
 package cloud_servce.service;
 
-import java.math.BigDecimal;
-
-import javax.persistence.Transient;
-
-import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.gson.Gson;
-import com.hazelcast.util.JsonUtil;
-//import com.hazelcast.util.MD5Util;
 
 import cloud_servce.conf.ConstantConfig;
 import cloud_servce.dao.IUserDao;
@@ -54,7 +46,7 @@ public class UserService {
 		if (user == null) {
 			user = userDao.findByUserPhone(phone);
 			if (user==null) {
-				result = new FailureResult("401","手机号未注册");
+				result = new FailureResult("401",ConstantConfig.EMPTY_USER_PROMPT);
 			}else{
 				result = new FailureResult("手机号或密码错误");
 			}
@@ -103,7 +95,7 @@ public class UserService {
 		User source_user = userDao.findByUserId(userId);
 		ResultBody result;
 		if (source_user == null) {
-			result = new FailureResult("用户不存在");
+			result = new FailureResult(ConstantConfig.EMPTY_USER_PROMPT);
 		}else {
 			result = new SuccessResult("获取用户信息成功", source_user);
 		}
@@ -115,7 +107,7 @@ public class UserService {
 		User source_user = userDao.findByUserId(user.getUserId());
 		ResultBody result;
 		if (source_user == null) {
-			result = new FailureResult("用户不存在");
+			result = new FailureResult(ConstantConfig.EMPTY_USER_PROMPT);
 		}else {
 			UpdateUtil.copyNonNullProperties(user, source_user);
 			user = userDao.save(source_user);
@@ -132,7 +124,7 @@ public class UserService {
 		if (checkToken.equals(token)) {
 			User source_user = userDao.findByUserId(userId);
 			if (source_user == null) {
-				result = new FailureResult("用户不存在");
+				result = new FailureResult(ConstantConfig.EMPTY_USER_PROMPT);
 			}else {
 				source_user.setUserPassword(newPassword);
 				userDao.save(source_user);

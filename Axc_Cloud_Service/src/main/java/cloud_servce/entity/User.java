@@ -1,7 +1,6 @@
 package cloud_servce.entity;
 
 import javax.persistence.Cacheable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +26,8 @@ public class User {
 	private String 	userPhone;
 	private Integer 	userLevel;
 	private Integer 	isAdmin;
+	@JsonIgnore // 排除序列化
+	private String 	service;
 
 	public User() {
 		// TODO 自动生成的构造函数存根
@@ -94,6 +95,14 @@ public class User {
 
 	public void setIsAdmin(Integer isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+
+	public String getService() {
+		return service;
+	}
+
+	public void setService(String service) {
+		this.service = service;
 	}
 	
 	

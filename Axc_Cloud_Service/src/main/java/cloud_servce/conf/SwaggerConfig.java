@@ -34,8 +34,10 @@ public class SwaggerConfig {
 	private Tag[] getTags() {
 		Tag[] tags = {
 				new Tag("user", "用户相关接口"),
-				new Tag("book", "书相关的API"),
-				new Tag("dog", "狗相关")
+				new Tag("comic", "漫画接口 失效时间：2019-09-07 | 3次/秒"),
+				new Tag("word", "分词接口 - 无限制"),
+				new Tag("gold", "黄金数据接口 - 100次/天"),
+				new Tag("wor1d", "分词接口"),
 		};
 		return tags;
 	}

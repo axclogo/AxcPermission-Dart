@@ -3,7 +3,6 @@ package cloud_servce.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.MediaType;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import cloud_servce.conf.ConstantConfig;
 import cloud_servce.entity.User;
 import cloud_servce.service.UserService;
 
