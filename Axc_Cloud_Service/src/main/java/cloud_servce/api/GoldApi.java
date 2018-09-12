@@ -14,11 +14,11 @@ import cloud_servce.service.GoldService;
 
 @RestController
 @RequestMapping("gold/")
-@Api(tags = {"gold"})
+@Api(tags = {"98_tripartite"})
 public class GoldApi {
 	@Autowired
 	private GoldService goldService;
-
+	// 黄金数据接口 - 100次/天
 	@ApiOperation(value = "黄金数据", notes = "上海黄金交易所 - 黄金数据 - 100次/天", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@PostMapping("shgold")
 	public Object shgold(Integer userId){

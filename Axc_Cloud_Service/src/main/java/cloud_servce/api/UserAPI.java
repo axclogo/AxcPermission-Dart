@@ -16,7 +16,7 @@ import cloud_servce.service.UserService;
 
 @RestController
 @RequestMapping("user/")
-@Api(tags = {"user"})
+@Api(tags = {"0_user"})
 public class UserApi {
 	@Autowired
 	private UserService userService;

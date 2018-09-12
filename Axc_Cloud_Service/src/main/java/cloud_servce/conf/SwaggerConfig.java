@@ -24,7 +24,7 @@ public class SwaggerConfig {
 				.apiInfo(apiInfo())
 				/* .tags 第一个参数必须是Tag，后面的是 Tag 类型的可选参数
             new Tag(String,String) 第一个参数是key，第二个参数是Value。注解@Api#tags传入的是tag的key */
-				.tags(new Tag("test", "测试接口"),getTags())
+				.tags(new Tag("99_test", "测试接口"),getTags())
 				.select()  // 选择那些路径和api会生成document
 				.apis(RequestHandlerSelectors.basePackage("cloud_servce.api")) // 对所有api进行监控
 				.paths(PathSelectors.any()) // 对所有路径进行监控
@@ -33,11 +33,11 @@ public class SwaggerConfig {
 
 	private Tag[] getTags() {
 		Tag[] tags = {
-				new Tag("user", "用户相关接口"),
-				new Tag("comic", "漫画接口 失效时间：2019-09-07 | 3次/秒"),
-				new Tag("word", "分词接口 - 无限制"),
-				new Tag("gold", "黄金数据接口 - 100次/天"),
+				new Tag("0_user", "用户相关接口"),
+				new Tag("1_crawler", "爬虫数据表接口"),
+				new Tag("gold", ""),
 				new Tag("wor1d", "分词接口"),
+				new Tag("98_tripartite", "三方数据平台"),
 		};
 		return tags;
 	}
